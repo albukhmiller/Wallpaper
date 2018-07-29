@@ -12,6 +12,9 @@
         android:id="@+id/toolbar"
         layout="@layout/my_toolbar" />
 
+    <include
+        android:id="@+id/layoutLoader"
+        layout="@layout/layout_loader" />
 
     <Button
         android:id="@+id/btnUpdateDetailPicture"

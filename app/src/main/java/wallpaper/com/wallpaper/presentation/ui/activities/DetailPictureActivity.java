@@ -43,6 +43,10 @@ public class DetailPictureActivity extends AppCompatActivity {
     @BindView(R.id.llPictureDetail)
     ConstraintLayout llPictureDetail;
 
+
+    @BindView(R.id.layoutLoader)
+    View layoutLoader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +95,7 @@ public class DetailPictureActivity extends AppCompatActivity {
     }
 
     private void loadPicture(String url) {
+        layoutLoader.setVisibility(View.VISIBLE);
         Picasso.with(this)
                 .load(url)
                 .into(ivFullScreenPicture, new Callback() {
@@ -99,6 +104,7 @@ public class DetailPictureActivity extends AppCompatActivity {
                         btnUpdateDetailPicture.setVisibility(View.GONE);
                         btnSetWallpaper.setVisibility(View.VISIBLE);
                         ivFullScreenPicture.setVisibility(View.VISIBLE);
+                        layoutLoader.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -117,5 +123,6 @@ public class DetailPictureActivity extends AppCompatActivity {
 
         btnUpdateDetailPicture.setVisibility(View.VISIBLE);
         btnSetWallpaper.setVisibility(View.GONE);
+        layoutLoader.setVisibility(View.GONE);
     }
 }
